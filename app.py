@@ -1,9 +1,10 @@
 import numpy as np
-from flask import app,Flask,render_template,jsonify,json
+import pandas as pd
+from flask import app,Flask,render_template,url_for,jsonify,json
 import pickle
 
 app = Flask(__name__)
-model = pickle.load(open(r"C:\Users\hp\PycharmProjects\pythonProject1\model_LR.pkl","rb"))
+model = pickle.load(open("model_LR.pkl","rb"))
 
 @app.route("/")
 def home():
@@ -18,6 +19,7 @@ def predict_api():
     prediction = model.predict(new_data)
 
     output = prediction[0]
+    print(output[0])
     return jsonify(output[0])
 
 #     return render_template('index.html', prediction_text='Dead[0]/Alive[1] = {}'.format(output))
