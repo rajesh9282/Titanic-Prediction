@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html >
+<body  align="center" style="background-color:green;">
+<head>
+  <meta charset="UTF-8">
+  <title>Model Deployment</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <style>
+      body {
+        font-family: 'Tangerine', serif;
+        font-size: 28px;
+      }
+    </style>
+
+
+</head>
+
+<body>
+ <div class="login">
+	<h1 style="text-align:center">Churn Analytics</h1>
+
+    <form align="center" action="{{ url_for('predict')}}"method="post">
+    	<input type="text" style="text-align:center" name="Age" placeholder="Age" required="required" />
+        <br>
+        <input type="text" style="text-align:center" name="Fare" placeholder="Fare" required="required" />
+        <br>
+		<input type="text" style="text-align:center" name="Pclass_1" placeholder="Pclass_1" required="required" />
+        <br>
+        <input type="text" style="text-align:center" name="Pclass_2" placeholder="Pclass_2" required="required" />
+        <br>
+        <input type="text" style="text-align:center" name="Pclass_3" placeholder="Pclass_3" required="required" />
+        <br>
+		<input type="text" style="text-align:center" name="Sex_female" placeholder="Sex_female" required="required" />
+        <br>
+        <input type="text" style="text-align:center" name="Sex_male" placeholder="Sex_male" required="required" />
+        <br>
+
+
+        <button align="center" type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+     {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
